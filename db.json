@@ -1,0 +1,8 @@
+{
+    "tasks": [
+        { "id": 1, "name": "task 1", "pomodoros": 0, "concluded": false },
+        { "id": 2, "name": "task 2", "pomodoros": 2, "concluded": false },
+        { "id": 3, "name": "task 3", "pomodoros": 3, "concluded": true },
+        { "id": 4, "name": "task 4", "pomodoros": 4, "concluded": true }
+    ]
+}
