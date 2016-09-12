@@ -1,7 +1,7 @@
 module Tasks.List exposing (view)
 
 import Html exposing (..)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, attribute)
 import Html.Events exposing (onClick)
 import Tasks.Messages exposing (Msg(..))
 import Tasks.Models exposing (..)
@@ -9,26 +9,28 @@ import Tasks.Models exposing (..)
 
 view : TaskList -> Html Msg
 view model =
-    div [ class "p2" ]
+    div [ attribute "container" "" ]
         [ list (filteredTasks model.filter model.tasks)
-        , filterLink "Show All" All model
-        , filterLink "Show Completed" ShowCompleted model
-        , filterLink "Show Incompleted" ShowIncompleted model
+        , div [ attribute "row" "" ]
+            [ filterLink "Show All" All model
+            , filterLink "Show Completed" ShowCompleted model
+            , filterLink "Show Incompleted" ShowIncompleted model
+            ]
         ]
 
 
 filterLink : String -> TaskFilter -> TaskList -> Html Msg
 filterLink description filter model =
     if filter == model.filter then
-        span [ class "mr2 inline-block" ] [ text description ]
+        span [ class "mr5" ] [ text description ]
     else
-        a [ class "mr2 inline-block pointer", onClick (FilterSelected filter) ]
+        a [ class "mr5", onClick (FilterSelected filter) ]
             [ text description ]
 
 
 list : List Task -> Html Msg
 list tasks =
-    table []
+    table [ class "table--full" ]
         [ thead []
             [ tr []
                 [ th [] [ text "Task" ]
@@ -42,8 +44,8 @@ list tasks =
 taskRow : Task -> Html Msg
 taskRow task =
     tr [ class (lineStyle task) ]
-        [ td [ class "table-cell" ] [ text task.name ]
-        , td [ class "right-align" ] [ text (toString task.pomodoros) ]
+        [ td [ class "" ] [ text task.name ]
+        , td [ class "" ] [ text (toString task.pomodoros) ]
         ]
 
 

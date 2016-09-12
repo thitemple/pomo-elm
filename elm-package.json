@@ -1,7 +1,7 @@
 {
     "version": "0.1.0",
     "summary": "A pomodoro application written with the elm language",
-    "repository": "https://github.com/vintem/pomo-elm",
+    "repository": "https://github.com/vintem/pomo-elm.git",
     "license": "MIT",
     "source-directories": [
         "src"
